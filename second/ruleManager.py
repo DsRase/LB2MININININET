@@ -198,7 +198,6 @@ class ONOSFlowManager:
 def apply_qos_rules(net):
     manager = ONOSFlowManager()
 
-    # Проверяем подключение к ONOS
     devices, error = manager.get_devices()
     if error:
         return False

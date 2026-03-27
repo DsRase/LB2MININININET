@@ -62,3 +62,9 @@ pip install -r requirements.txt
 ## DoD
 1. `h1 ping -c 5 h2` - ~5мс (VoIP трафик)
 2. `h3 ping -c 5 h4` - ~40мс (Обычный трафик)
+
+*Через iperf (именно скорость, а не задержку)*
+- `h2 iperf -s -u -i 1 &` 
+- `h1 iperf -u -c 10.0.1.2 -b 100M -t 10 -i 1 -S 0xb8` - ~100мбит/сек (VoIP трафик) 
+- `h4 iperf -s -i 1 &`
+- `h3 iperf -c 10.0.2.2 -t 10 -i 1` - ~5мбит/сек (Обычный трафик)
